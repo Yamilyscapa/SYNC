@@ -10,6 +10,8 @@
     "start": "serve dist"
   },
   "dependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@lucide/astro": "^0.513.0",
     "astro": "^5.9.0",
     "serve": "^14.2.4"
   },
