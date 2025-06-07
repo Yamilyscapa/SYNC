@@ -2,6 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
+<head>
+	<link
+		rel="preload"
+		as="image"
+		href="/assets/background.webp"
+		fetchpriority="high"
+	/>
+</head>
+
 <Layout>
 	<section class="hero section">
 		<div class="hero_content">
@@ -52,7 +61,6 @@ import Layout from "../layouts/Layout.astro";
 			}
 
 			@media screen and (max-width: 1200px) {
-
 				h1 {
 					font-size: 3rem;
 				}
