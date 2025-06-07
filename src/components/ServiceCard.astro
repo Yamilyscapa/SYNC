@@ -54,6 +54,7 @@ const IconComponent = iconMap[icon];
 <style lang="scss">
     .service {
         width: 100%;
+        max-width: 325px;
         height: 4rem;
         padding: 1rem 2rem;
         background: rgba(255, 255, 255, 0.15);
@@ -65,7 +66,7 @@ const IconComponent = iconMap[icon];
         transition: height 0.3s ease;
 
         &.visible {
-            height: 400px;
+            height: 370px;
         }
 
         &_header {
@@ -95,12 +96,12 @@ const IconComponent = iconMap[icon];
         display: none;
 
         &.visible {
-            height: 350px;
+            height: 320px;
             display: grid;
             grid-template-rows: 1fr 1fr;
 
             p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 opacity: 0.6;
                 margin-top: 1.5rem;
             }
