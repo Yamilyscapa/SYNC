@@ -5,6 +5,7 @@ import "../styles/globals.scss";
 <!doctype html>
 <html lang="en">
 	<head>
+		<link rel="preload" href="/background.webp" as="image" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
@@ -20,6 +21,7 @@ import "../styles/globals.scss";
 			content="Sync, desarrolladores web, sitios web, desarrollo web profesional, agencia Sync, diseño web, optimización web, desarrollo de aplicaciones, soluciones digitales, tecnología web, desarrollo a medida, diseño responsive, SEO, marketing digital"
 		/>
 		<meta name="robots" content="index, follow" />
+		<slot name="head" />
 		<title>SYNC</title>
 	</head>
 	<body>

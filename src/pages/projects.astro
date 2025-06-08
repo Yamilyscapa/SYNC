@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
 ---
+
+<Fragment name="head">
+    <link rel="preload" href="/royal_project.webp" as="image" />
+    <link rel="preload" href="/hauzo_project.webp" as="image" />
+</Fragment>
 
 <Layout>
     <section class="projects section">
@@ -16,7 +20,7 @@ import Image from "astro/components/Image.astro";
         <div class="projects_body">
             <div class="projects_container">
                 <article class="project project_web">
-                    <img class="project_img" src="/hauzzo_project.png" alt="" />
+                    <img class="project_img" src="/hauzzo_project.webp" alt="" />
                     <div class="project_content">
                         <h2>Hauzzo</h2>
                         <p>
@@ -29,7 +33,7 @@ import Image from "astro/components/Image.astro";
                 </article>
 
                 <article class="project project_mobile">
-                    <img class="project_img" src="/royal_project.png" alt="" />
+                    <img class="project_img" src="/royal_project.webp" alt="" />
                     <div class="project_content">
                         <h2>The Royal App</h2>
                         <p>
