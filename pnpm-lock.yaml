@@ -20,6 +20,9 @@ importers:
       astro:
         specifier: ^5.9.0
         version: 5.9.0(@types/node@22.15.30)(rollup@4.42.0)(sass@1.89.1)(typescript@5.8.3)(yaml@2.8.0)
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
       serve:
         specifier: ^14.2.4
         version: 14.2.4
@@ -1041,6 +1044,10 @@ packages:
 
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
+
+  hono@4.7.11:
+    resolution: {integrity: sha512-rv0JMwC0KALbbmwJDEnxvQCeJh+xbS3KEWW5PC9cMJ08Ur9xgatI0HmtgYZfOdOSOeYsp5LO2cOhdI8cLEbDEQ==}
+    engines: {node: '>=16.9.0'}
 
   html-escaper@3.0.3:
     resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
@@ -3035,6 +3042,8 @@ snapshots:
       hast-util-parse-selector: 4.0.0
       property-information: 7.1.0
       space-separated-tokens: 2.0.2
+
+  hono@4.7.11: {}
 
   html-escaper@3.0.3: {}
 
