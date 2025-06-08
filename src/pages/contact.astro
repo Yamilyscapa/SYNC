@@ -4,6 +4,19 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
 ---
 
 <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const sendButton = document.querySelector("#sendButton") as HTMLButtonElement;
+
+    const formCookie = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("formSubmitted="));
+
+    if (formCookie && sendButton) {
+      sendButton.disabled = true;
+      sendButton.textContent = "Mensaje enviado";
+    }
+  });
+
     async function handleSubmit(e: Event) {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -11,6 +24,18 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
         const email = (form.querySelector("#email") as HTMLInputElement).value;
         const message = (form.querySelector("#message") as HTMLTextAreaElement)
             .value;
+        const sendButton = form.querySelector(
+            "#sendButton",
+        ) as HTMLButtonElement;
+
+
+        // Validación simple del correo electrónico
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!isValidEmail) {
+            alert("Por favor, ingresa un correo electrónico válido.");
+            return;
+        }
 
         const res = await fetch(import.meta.env.PUBLIC_MAIL_API_URL, {
             method: "POST",
@@ -22,6 +47,11 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
 
         if (res.ok) {
             alert("Mensaje enviado con éxito");
+            sendButton.disabled = true;
+            sendButton.textContent = "Mensaje enviado";
+            // Establecer una cookie para evitar múltiples envíos
+            document.cookie = "formSubmitted=true; max-age=45000; path=/contact";
+            // Limpiar el formulario
             form.reset();
         } else {
             const errorData = await res.json();
@@ -79,7 +109,9 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
                 </div>
 
                 <div class="button_wrapper">
-                    <button class="button primary">Enviar</button>
+                    <button id="sendButton" class="button primary"
+                        >Enviar</button
+                    >
                 </div>
             </form>
 
@@ -228,6 +260,15 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
                 .buttons {
                     padding-left: 0;
                 }
+            }
+        }
+
+        #sendButton:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+
+            &:hover {
+                transform: none;
             }
         }
     }
