@@ -1,5 +1,5 @@
 ---
-import '../styles/globals.scss';
+import "../styles/globals.scss";
 ---
 
 <!doctype html>
@@ -8,29 +8,58 @@ import '../styles/globals.scss';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<meta name="generator" content={Astro.generator} />
 		<title>SYNC</title>
 	</head>
 	<body>
-		<nav>
-			<a href="/#">SYNC</a>
-		</nav>
+		<header class="container">
+			<a class="logo" href="/#">SYNC</a>
+			<nav class="nav_links">
+				<a href="/#">Inicio</a>
+				<a href="/projects">Proyectos</a>
+				<a href="/contact">Contacto</a>
+			</nav>
+		</header>
+
 		<slot />
 	</body>
 </html>
 
 <style lang="scss">
-	nav {
-		padding: 1rem;
+	header {
+		margin: auto;
+		display: flex;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		gap: 2rem;
+		justify-content: space-between;
+		align-items: center;
 		text-align: center;
 
 		a {
+			color: white;
+			text-decoration: none;
+			font-size: 0.8rem;
+			opacity: 0.8;
+		}
+
+		nav {
+			display: flex;
+			gap: 1.5rem;
+			justify-content: center;
+			align-items: center;
+
+			a:hover {
+				opacity: 1;
+			}
+		}
+
+		.logo {
 			color: white;
 			text-decoration: none;
 			font-size: 1.5rem;
 			font-weight: bold;
 		}
 	}
-
 </style>
