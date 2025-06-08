@@ -1,5 +1,7 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "module": "esnext",
     "moduleResolution": "bundler",
     "plugins": [
       {

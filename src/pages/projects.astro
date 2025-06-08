@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+---
+
+<Layout>
+    <section class="projects section">
+        <div class="projects_header">
+            <h2>Nuestros Proyectos</h2>
+            <p>
+                Explora algunos de nuestros proyectos destacados que reflejan
+                nuestra experiencia y compromiso con la calidad.
+            </p>
+        </div>
+
+        <div class="projects_body">
+            <div class="projects_container">
+                <article class="project project_web">
+                    <img class="project_img" src="/hauzzo_project.png" alt="" />
+                    <div class="project_content">
+                        <h2>Hauzzo</h2>
+                        <p>
+                            Una plataforma para una inmobiliaria que conecta
+                            compradores y vendedores de propiedades en México,
+                            con un enfoque en la experiencia del usuario y la
+                            eficiencia en la gestión de propiedades.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project project_mobile">
+                    <img class="project_img" src="/royal_project.png" alt="" />
+                    <div class="project_content">
+                        <h2>The Royal App</h2>
+                        <p>
+                            Una aplicacion movil para una barberia que permite a
+                            los clientes reservar citas, gestionar su perfil y
+                            recibir notificaciones sobre promociones y
+                            novedades, mejorando la experiencia del cliente y
+                            optimizando la gestión de citas.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style lang="scss">
+    .projects {
+        &_container {
+            display: flex;
+            flex-direction: column;
+            gap: 4vw;
+        }
+
+        &_header {
+            text-align: center;
+            margin: 2rem 0;
+
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                opacity: 0.5;
+            }
+
+            @media screen and (max-width: 768px) {
+                h2 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .project {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 1rem 0;
+
+            .project_img {
+                width: auto;
+                max-height: 400px;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+
+            @media screen and (max-width: 768px) {
+                &.project_web {
+                    img {
+                        max-height: 220px;
+                    }
+                }
+                &.project_mobile {
+                    img {
+                        max-height: 400px;
+                    }
+                }
+            }
+
+            .project_content {
+                h2 {
+                    font-size: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    opacity: 0.5;
+                }
+
+                @media screen and (max-width: 768px) {
+                    h2 {
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+</style>
