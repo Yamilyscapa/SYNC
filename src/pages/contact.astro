@@ -9,7 +9,8 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
         const form = e.target as HTMLFormElement;
         const name = (form.querySelector("#name") as HTMLInputElement).value;
         const email = (form.querySelector("#email") as HTMLInputElement).value;
-        const message = (form.querySelector("#message") as HTMLTextAreaElement).value;
+        const message = (form.querySelector("#message") as HTMLTextAreaElement)
+            .value;
 
         const res = await fetch(import.meta.env.PUBLIC_MAIL_API_URL, {
             method: "POST",
@@ -17,13 +18,14 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ name, email, message }),
-        })
+        });
 
         if (res.ok) {
             alert("Mensaje enviado con éxito");
             form.reset();
         } else {
             const errorData = await res.json();
+            console.error("Error al enviar el mensaje:", errorData.message);
             alert("Error al enviar el mensaje");
         }
     }
@@ -85,14 +87,20 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
                 <p>¿Tienes alguna pregunta? ¡Envianos un mensaje!</p>
 
                 <div class="buttons">
-                    <a class="button secondary" href="https://wa.me/2228230805?text=Estoy%20interesado%20en%20un%20sitio%20web" target="_blank">
+                    <a
+                        class="button secondary"
+                        href="https://wa.me/2228230805?text=Estoy%20interesado%20en%20un%20sitio%20web"
+                        target="_blank"
+                    >
                         <MessageSquare class="icon" />
-                        Contactanos vía WhatsApp
+                        Mandanos un WhatsApp
                     </a>
-
-                    <a class="button secondary" href="mailto:syncestudiomx@gmail.com">
+                    <a
+                        class="button secondary"
+                        href="mailto:syncestudiomx@gmail.com"
+                    >
                         <MailIcon class="icon" />
-                        Contactanos por correo
+                        Mandanos un correo
                     </a>
                 </div>
             </div>
