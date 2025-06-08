@@ -41,7 +41,14 @@ import Image from "astro/components/Image.astro";
                         </p>
                     </div>
                 </article>
+
+                <div class="button_wrapper">
+                    <a href="/contact" class="button primary"
+                        >Pongamonos en contacto</a
+                    >
+                </div>
             </div>
+
         </div>
     </section>
 </Layout>
@@ -127,6 +134,11 @@ import Image from "astro/components/Image.astro";
                     }
                 }
             }
+        }
+
+        .button_wrapper {
+            display: flex;
+            justify-content: center;
         }
     }
 </style>
