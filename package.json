@@ -7,9 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "start": "serve dist"
+    "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.2",
     "@astrojs/ts-plugin": "^1.10.4",
     "@lucide/astro": "^0.513.0",
     "astro": "^5.9.0",
