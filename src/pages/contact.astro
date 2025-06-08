@@ -3,6 +3,39 @@ import Layout from "../layouts/Layout.astro";
 import { MessageSquare, MailIcon } from "@lucide/astro";
 ---
 
+<script>
+    async function handleSubmit(e: Event) {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const name = (form.querySelector("#name") as HTMLInputElement).value;
+        const email = (form.querySelector("#email") as HTMLInputElement).value;
+        const message = (form.querySelector("#message") as HTMLTextAreaElement).value;
+
+        const res = await fetch(import.meta.env.PUBLIC_MAIL_API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, message }),
+        })
+
+        if (res.ok) {
+            alert("Mensaje enviado con éxito");
+            form.reset();
+        } else {
+            const errorData = await res.json();
+            alert("Error al enviar el mensaje");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+        if (form) {
+            form.addEventListener("submit", handleSubmit);
+        }
+    });
+</script>
+
 <Layout>
     <section class="contact section">
         <div class="contact_heading">
@@ -52,14 +85,14 @@ import { MessageSquare, MailIcon } from "@lucide/astro";
                 <p>¿Tienes alguna pregunta? ¡Envianos un mensaje!</p>
 
                 <div class="buttons">
-                    <a class="button secondary">
+                    <a class="button secondary" href="https://wa.me/2228230805?text=Estoy%20interesado%20en%20un%20sitio%20web" target="_blank">
                         <MessageSquare class="icon" />
                         Contactanos vía WhatsApp
                     </a>
 
-                    <a class="button secondary">
+                    <a class="button secondary" href="mailto:syncestudiomx@gmail.com">
                         <MailIcon class="icon" />
-                        Contactanos vía WhatsApp
+                        Contactanos por correo
                     </a>
                 </div>
             </div>
