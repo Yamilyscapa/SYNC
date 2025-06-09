@@ -1,76 +1,27 @@
 ---
 import "../styles/globals.scss";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<meta name="generator" content={Astro.generator} />
+		<title>SYNC - Expertos en Desarrollo Web</title>
 		<meta name="author" content="SYNC" />
 		<meta
 			name="description"
 			content="Sync: expertos desarrolladores web. Creamos sitios web optimizados, modernos y funcionales. ¡Contáctanos y destaca online!"
 		/>
-		<meta
-			name="keywords"
-			content="Sync, desarrolladores web, sitios web, desarrollo web profesional, agencia Sync, diseño web, optimización web, desarrollo de aplicaciones, soluciones digitales, tecnología web, desarrollo a medida, diseño responsive, SEO, marketing digital"
-		/>
 		<meta name="robots" content="index, follow" />
 		<slot name="head" />
-		<title>SYNC</title>
 	</head>
 	<body>
-		<header class="container">
-			<a class="logo" href="/#">SYNC</a>
-			<nav class="nav_links">
-				<a href="/#">Inicio</a>
-				<a href="/projects">Proyectos</a>
-				<a href="/contact">Contacto</a>
-			</nav>
-		</header>
+		<Header />
 
 		<slot />
 	</body>
 </html>
-
-<style lang="scss">
-	header {
-		margin: auto;
-		display: flex;
-		padding-top: 1.5rem;
-		padding-bottom: 1.5rem;
-		gap: 2rem;
-		justify-content: space-between;
-		align-items: center;
-		text-align: center;
-
-		a {
-			color: white;
-			text-decoration: none;
-			font-size: 0.8rem;
-			opacity: 0.8;
-		}
-
-		nav {
-			display: flex;
-			gap: 1.5rem;
-			justify-content: center;
-			align-items: center;
-
-			a:hover {
-				opacity: 1;
-			}
-		}
-
-		.logo {
-			color: white;
-			text-decoration: none;
-			font-size: 1.5rem;
-			font-weight: bold;
-		}
-	}
-</style>
