@@ -15,78 +15,92 @@
 <style lang="scss">
     .service_card {
         width: 100%;
-        max-height: 600px;
-        border-radius: 0.8rem;
-        padding-inline: 10rem 0;
+        max-height: 500px;
         background: rgba(255, 255, 255, 0.1);
+        padding: 4rem;
+        border-radius: 0.8rem;
         overflow: hidden;
-        padding: 5vw;
         display: grid;
-        grid-template-columns: 60% 40%;
-        align-items: center;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        &_content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: start;
+            gap: 1rem;
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
         }
 
-        p {
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            width: 80%;
+        .image {
+            width: 600px;
+            display: flex;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
         }
 
-        a {
-            margin-bottom: 2rem;
-        }
+        @media screen and (max-width: 1550px) {
+            max-height: 650px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
 
-        .image img {
-            max-width: 600px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            position: relative;
-            bottom: 2rem;
-            right: 5rem;
+            &_content {
+                flex-direction: column;
+                text-align: center;
+
+                p {
+                    width: 80%;
+                    margin: auto;
+                }
+
+                .link {
+                    margin: auto;
+                }
+            }
         }
 
         @media screen and (max-width: 1200px) {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-
-            p {
-                margin: auto;
-            }
-
-            a {
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
             .image {
-                width: 35vw;
-                display: flex;
-
-                img {
-                    width: 100%;
-                    position: static;
-                }
+                width: 500px;
             }
         }
 
-        @media screen and (max-width: 768px) {
-            height: 500px;
-            padding-top: 5rem;
+        @media screen and (max-width: 750px) {
+            padding: 4rem 2rem;
+            
+            &_content {
+                h2 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    width: 100%;
+                    font-size: 0.9rem;
+                }
+            }
             
             .image {
-                width: 75%;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
+                width: 350px;
             }
         }
+         
     }
 </style>

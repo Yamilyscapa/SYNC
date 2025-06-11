@@ -28,21 +28,21 @@ import { services } from "../const/services";
 			</p>
 
 			<div class="service_selector">
-			<button class="service_web_design button secondary"
-				>Desarrollo web</button
-			>
-			<button class="service_app_development button secondary"
-				>Desarrollo de apps</button
-			>
-			<button class="service_custom_solutions button secondary"
-				>Soluciones a medida</button
-			>
-		</div>
+				<button class="service_web_design button secondary"
+					>Desarrollo web</button
+				>
+				<button class="service_app_development button secondary"
+					>Desarrollo de apps</button
+				>
+				<button class="service_custom_solutions button secondary"
+					>Soluciones a medida</button
+				>
+			</div>
 		</div>
 
-			<div class="services_container">
-				<ServiceCard />
-			</div>
+		<div class="services_container">
+			<ServiceCard />
+		</div>
 	</section>
 </Layout>
 
@@ -50,6 +50,11 @@ import { services } from "../const/services";
 	.title {
 		text-align: center;
 		font-size: 2.25rem;
+
+		@media screen and (max-width: 800px) {
+			font-size: 2rem;
+			
+		}
 	}
 
 	.hero {
@@ -116,22 +121,39 @@ import { services } from "../const/services";
 			}
 
 			.service_selector {
-			display: flex;
-			justify-content: center;
-			gap: 0.5rem;
-			margin-bottom: 2rem;
+				display: flex;
+				justify-content: center;
+				gap: 0.5rem;
+				margin-bottom: 2rem;
 
-			button {
-				border: none;
-				font-size: 0.9rem;
+				button {
+					border: none;
+					font-size: 0.9rem;
 
-				&:hover {
-					transform: none;
-					background: rgba(255, 255, 255, 0.3);
+					&:hover {
+						transform: none;
+						background: rgba(255, 255, 255, 0.3);
+					}
+				}
+
+				@media screen and (max-width: 800px)  {
+					max-width: 100%;
+					overflow-x: scroll;
+					scroll-snap-type: x mandatory;
+					justify-content: flex-start;
+
+					button {
+						text-wrap: nowrap;
+						min-width: max-content;
+						flex-shrink: 0;
+						scroll-snap-align: start;
+						
+						&:focus {
+							scroll-margin-left: 1rem;
+						}
+					}
 				}
 			}
-		}
-			
 		}
 
 		&_container {
