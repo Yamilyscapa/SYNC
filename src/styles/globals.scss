@@ -58,3 +58,19 @@ body {
         transition: transform 0.2s ease-in-out;
     }
 }
+
+.link {
+    color: #d0d8fb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    &::after {
+        content: '›';
+        font-size: 1.25rem;
+        display: inline-block;
+    }
+}

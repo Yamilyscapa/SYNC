@@ -1,119 +1,90 @@
----
-import { AppWindowMac, Smartphone, MonitorSmartphone } from "@lucide/astro";
-
-type IconType = "Web" | "Phone" | "Desktop";
-
-interface Props {
-    title: string;
-    description?: string;
-    icon: IconType;
-    id: string;
-}
-
-const { title, description, icon, id }: Props = Astro.props;
-
-const iconMap = {
-    Web: MonitorSmartphone,
-    Phone: Smartphone,
-    Desktop: AppWindowMac,
-};
-
-const IconComponent = iconMap[icon];
----
-
-<script define:vars={{ id }}>
-    document.addEventListener('DOMContentLoaded', () => {
-        const service = document.querySelectorAll('.service');
-
-        service.forEach((service) => {
-            service.addEventListener('click', () => {
-                const expandible = service.querySelector('.expandible');
-                service.classList.toggle('visible');
-                expandible?.classList.toggle('visible');
-            });
-        });
-    });
-</script>
-
-<div class="service" id={id}>
-    <div class="service_content">
-        <div class="service_header">
-            <IconComponent />
-            <h3>{title}</h3>
-        </div>
-
-        <div class="expandible">
-            <p>{description}</p>
-            <div class="button_wrapper">
-                <a href="#" class="button primary">Saber más</a>
-            </div>
-        </div>
+<div class="service_card">
+    <div class="service_card_content">
+        <h2>Desarrollo web</h2>
+        <p>
+            Creamos sitios web personalizados y optimizados para SEO, adaptados
+            a las necesidades de tu negocio.
+        </p>
+        <a href="/contacto" class="link">Quiero mi sitio web</a>
+    </div>
+    <div class="image">
+        <img src="/web_development_service.webp" alt="Desarrollo web" />
     </div>
 </div>
 
 <style lang="scss">
-    .service {
+    .service_card {
         width: 100%;
-        max-width: 325px;
-        height: 4rem;
-        padding: 1rem 2rem;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid #fff;
-        border-radius: 1rem;
-        cursor: pointer;
-        position: relative;
+        max-height: 600px;
+        border-radius: 0.8rem;
+        padding-inline: 10rem 0;
+        background: rgba(255, 255, 255, 0.1);
         overflow: hidden;
-        transition: height 0.3s ease;
+        padding: 5vw;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        align-items: center;
 
-        &.visible {
-            height: 370px;
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        &_header {
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            width: 80%;
+        }
+
+        a {
+            margin-bottom: 2rem;
+        }
+
+        .image img {
+            max-width: 600px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            position: relative;
+            bottom: 2rem;
+            right: 5rem;
+        }
+
+        @media screen and (max-width: 1200px) {
             display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: opacity 0.2s ease;
-
-            &:hover {
-                opacity: 0.8;
-            }
-
-            h3 {
-                font-size: 1rem;
-                font-weight: 500;
-            }
-
-            svg {
-                width: 2rem;
-                height: 2rem;
-                color: #fff;
-            }
-        }
-    }
-
-    .expandible {
-        display: none;
-
-        &.visible {
-            height: 320px;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
+            flex-direction: column;
+            text-align: center;
 
             p {
-                font-size: 1.1rem;
-                opacity: 0.6;
-                margin-top: 1.5rem;
+                margin: auto;
             }
 
-            .button_wrapper {
-                width: 100%;
-                text-align: center;
-                margin-top: auto;
-                padding-bottom: 2rem;
+            a {
+                justify-content: center;
+                margin-top: 1rem;
+            }
 
-                a {
+            .image {
+                width: 35vw;
+                display: flex;
+
+                img {
                     width: 100%;
+                    position: static;
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            height: 500px;
+            padding-top: 5rem;
+            
+            .image {
+                width: 75%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }

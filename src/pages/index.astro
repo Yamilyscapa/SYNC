@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import { services } from "../const/services";
 ---
 
 <Layout>
@@ -19,36 +20,36 @@ import ServiceCard from "../components/ServiceCard.astro";
 	</section>
 
 	<section class="services section">
-		<h2 class="title">Nuestros servicios</h2>
+		<div class="services_header">
+			<h2 class="title">Tu empresa en la internet, comienza aquí</h2>
+			<p>
+				Elige el servicio que mejor se adapte a tus necesidades y
+				potencia tu presencia digital.
+			</p>
 
-		<div class="services_container">
-			<ServiceCard
-				id="service1"
-				title="Diseño y desarrollo web"
-				description="Ofrecemos soluciones de diseño y desarrollo web personalizadas para pequeñas y medianas empresas en México, ayudándolas a fortalecer su presencia digital y alcanzar sus objetivos comerciales."
-				icon="Web"
-			/>
-			<ServiceCard
-				id="service2"
-				title="Desarrollo de apps"
-				description="Desarrollamos aplicaciones móviles y web a la medida para pequeñas y medianas empresas en México, optimizando sus procesos y facilitando una conexión más directa y eficiente con sus clientes."
-				icon="Phone"
-			/>
-			<ServiceCard
-				id="service3"
-				title="Soluciones a medida"
-				description="Creamos soluciones a la medida que automatizan tareas como la gestión de citas y el seguimiento de clientes, ayudándote a operar con mayor eficiencia."
-				icon="Desktop"
-			/>
+			<div class="service_selector">
+			<button class="service_web_design button secondary"
+				>Desarrollo web</button
+			>
+			<button class="service_app_development button secondary"
+				>Desarrollo de apps</button
+			>
+			<button class="service_custom_solutions button secondary"
+				>Soluciones a medida</button
+			>
 		</div>
+		</div>
+
+			<div class="services_container">
+				<ServiceCard />
+			</div>
 	</section>
 </Layout>
 
 <style lang="scss">
 	.title {
 		text-align: center;
-		font-size: 2.5rem;
-		margin-bottom: 3rem;
+		font-size: 2.25rem;
 	}
 
 	.hero {
@@ -97,14 +98,57 @@ import ServiceCard from "../components/ServiceCard.astro";
 	}
 
 	.services {
-		&_container {
+		padding-top: 4rem;
+
+		&_header {
+			text-align: center;
+
+			h2 {
+				margin-bottom: 1rem;
+			}
+
+			p {
+				font-size: 1.2rem;
+				opacity: 70%;
+				max-width: 800px;
+				margin: 0 auto;
+				margin-bottom: 2rem;
+			}
+
+			.service_selector {
 			display: flex;
-			flex-direction: row;
-			align-items: stretch;
-			flex-wrap: wrap;
 			justify-content: center;
-			gap: 1rem;
-			row-gap: 1.5rem;
+			gap: 0.5rem;
+			margin-bottom: 2rem;
+
+			button {
+				border: none;
+				font-size: 0.9rem;
+
+				&:hover {
+					transform: none;
+					background: rgba(255, 255, 255, 0.3);
+				}
+			}
+		}
+			
+		}
+
+		&_container {
+			width: 100%;
+			margin-top: 4rem;
+		}
+
+		.service_card {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			justify-content: center;
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+				align-items: center;
+			}
 		}
 	}
 </style>
