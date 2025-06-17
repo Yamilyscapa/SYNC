@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
 
-export default defineConfig({
+import svelte from '@astrojs/svelte';
 
+export default defineConfig({
+  integrations: [svelte()]
 });

@@ -1,5 +1,5 @@
 export default interface Service {
-    type: | 'Desarrollo web' | 'Desarrollo de apps' | 'Soluciones a medida';
+    type: String;
     description: string;
     icon: any;
     link: string;
