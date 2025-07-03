@@ -10,10 +10,24 @@ import Footer from "../components/Footer.astro";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
-		<!-- Preload critical resources -->
-		<link rel="preload" href="/web_development_service.webp" as="image" type="image/webp" />
+		<!-- Preload critical fonts first -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" /></noscript>
+		
+		<!-- Preload critical resources -->
+		<link rel="preload" href="/web_development_service.webp" as="image" type="image/webp" />
+		<link rel="preload" href="/logo_text.png" as="image" type="image/png" />
+		
+		<!-- DNS prefetch for external resources -->
+		<link rel="dns-prefetch" href="//www.google-analytics.com" />
+		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+		
+		<!-- Resource hints for performance -->
+		<link rel="preconnect" href="https://wa.me" />
+		<link rel="prefetch" href="/projects" />
+		<link rel="prefetch" href="/contact" />
 		
 		<!-- Favicon optimized for different sizes -->
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -21,25 +35,183 @@ import Footer from "../components/Footer.astro";
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
 		
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<title>SYNC - Expertos en Desarrollo Web</title>
+		<title>SYNC - Desarrollo Web para PyMEs en Puebla y México</title>
 		<meta name="author" content="SYNC" />
 		<meta
 			name="description"
-			content="Sync: expertos desarrolladores web. Creamos sitios web optimizados, modernos y funcionales. ¡Contáctanos y destaca online!"
+			content="Agencia de desarrollo web especializada en sitios modernos para PyMEs. Presencia digital profesional en Puebla y México. ¡Contacta SYNC hoy!"
 		/>
-		<meta name="robots" content="index, follow" />
+		<meta name="keywords" content="desarrollo web pymes, agencia desarrollo web puebla, sitios web profesionales méxico, desarrollo web puebla, páginas web para negocios, diseño web empresas puebla" />
+		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<meta name="google-site-verification" content="" />
+		<meta name="geo.region" content="MX-PUE" />
+		<meta name="geo.placename" content="Puebla, México" />
+		<meta name="ICBM" content="19.0414, -98.2063" />
+		<meta name="DC.title" content="SYNC - Desarrollo Web para PyMEs en Puebla y México" />
+		<link rel="canonical" href="https://syncestudio.com" />
+		
+		<!-- Google Search Console and performance -->
+		<meta name="theme-color" content="#1e40af" />
+		<meta name="application-name" content="SYNC" />
+		<meta name="msapplication-TileColor" content="#1e40af" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		
 		<!-- Open Graph meta tags for social sharing -->
-		<meta property="og:title" content="SYNC - Expertos en Desarrollo Web" />
-		<meta property="og:description" content="Creamos sitios web optimizados, modernos y funcionales. ¡Contáctanos y destaca online!" />
+		<meta property="og:title" content="SYNC - Desarrollo Web para PyMEs en Puebla y México" />
+		<meta property="og:description" content="Agencia de desarrollo web especializada en sitios modernos para PyMEs. Presencia digital profesional en Puebla y México. ¡Contacta SYNC hoy!" />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="/web_development_service.webp" />
+		<meta property="og:locale" content="es_MX" />
+		<meta property="og:site_name" content="SYNC - Desarrollo Web" />
+		<meta property="og:url" content="https://syncestudio.com" />
+		<meta property="article:author" content="SYNC Estudio" />
+		<meta property="article:publisher" content="https://syncestudio.com" />
 		
 		<!-- Twitter Card meta tags -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="SYNC - Expertos en Desarrollo Web" />
-		<meta name="twitter:description" content="Creamos sitios web optimizados, modernos y funcionales." />
+		<meta name="twitter:title" content="SYNC - Desarrollo Web para PyMEs en Puebla y México" />
+		<meta name="twitter:description" content="Agencia de desarrollo web especializada en sitios modernos para PyMEs en Puebla y México." />
 		<meta name="twitter:image" content="/web_development_service.webp" />
+		<meta name="twitter:site" content="@syncestudio" />
+		<meta name="twitter:creator" content="@syncestudio" />
+		
+		<!-- Additional SEO meta tags -->
+		<meta name="language" content="Spanish" />
+		<meta name="distribution" content="global" />
+		<meta name="rating" content="general" />
+		<meta name="revisit-after" content="7 days" />
+		<meta name="expires" content="never" />
+		<meta name="coverage" content="Worldwide" />
+		<meta name="target" content="all" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="format-detection" content="telephone=yes" />
+		<meta name="format-detection" content="address=yes" />
+		
+		<!-- Schema.org structured data for local business -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"@id": "https://syncestudio.com/#organization",
+			"name": "SYNC - Desarrollo Web",
+			"alternateName": "SYNC Estudio",
+			"description": "Agencia de desarrollo web especializada en sitios modernos para PyMEs en Puebla y México",
+			"url": "https://syncestudio.com",
+			"telephone": "+52-222-823-0805",
+			"email": "syncestudiomx@gmail.com",
+			"foundingDate": "2020",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Puebla",
+				"addressRegion": "Puebla",
+				"addressCountry": "MX",
+				"postalCode": "72000"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "19.0414",
+				"longitude": "-98.2063"
+			},
+			"areaServed": [
+				{
+					"@type": "State",
+					"name": "Puebla"
+				},
+				{
+					"@type": "Country",
+					"name": "México"
+				}
+			],
+			"serviceType": [
+				"Desarrollo Web",
+				"Diseño Web",
+				"Desarrollo de Aplicaciones Móviles",
+				"Soluciones Digitales para PyMEs"
+			],
+			"priceRange": "$$",
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.8",
+				"reviewCount": "15"
+			},
+			"openingHours": "Mo-Fr 09:00-18:00",
+			"image": "https://syncestudio.com/web_development_service.webp",
+			"logo": "https://syncestudio.com/logo_text.png",
+			"sameAs": [
+				"https://wa.me/2228230805"
+			]
+		}
+		</script>
+
+		<!-- Website Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"@id": "https://syncestudio.com/#website",
+			"url": "https://syncestudio.com",
+			"name": "SYNC - Desarrollo Web para PyMEs",
+			"description": "Creamos sitios web profesionales para negocios como el tuyo",
+			"publisher": {
+				"@id": "https://syncestudio.com/#organization"
+			},
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://syncestudio.com/search?q={search_term_string}",
+				"query-input": "required name=search_term_string"
+			}
+		}
+		</script>
+
+		<!-- Service Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Desarrollo Web para PyMEs",
+			"description": "Creamos sitios web profesionales para pequeñas y medianas empresas en Puebla y México",
+			"provider": {
+				"@id": "https://syncestudio.com/#organization"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "México"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Servicios de Desarrollo Web",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Desarrollo Web para PyMEs",
+							"description": "Sitios web modernos y responsivos para pequeñas empresas"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Aplicaciones Móviles Empresariales",
+							"description": "Apps móviles para iOS y Android diseñadas para empresas"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Soluciones Digitales Personalizadas",
+							"description": "Software a medida para optimizar procesos empresariales"
+						}
+					}
+				]
+			}
+		}
+		</script>
 		
 		<slot name="head" />
 	</head>

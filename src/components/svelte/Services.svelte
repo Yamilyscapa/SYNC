@@ -1,15 +1,30 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import ServiceCard from "./ServiceCard.svelte";
   import ServiceSelector from "./ServiceSelector.svelte";
   let currentService: "web" | "app" | "custom" = "web";
+  
+  onMount(() => {
+    // Hide the loading skeleton with smooth transition when component mounts
+    const skeleton = document.getElementById('services-skeleton');
+    if (skeleton) {
+      requestAnimationFrame(() => {
+        skeleton.style.opacity = '0';
+        skeleton.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+          skeleton.style.display = 'none';
+        }, 300);
+      });
+    }
+  });
 </script>
 
 <section class="services section">
   <div class="services_header">
-    <h2 class="title">Tu empresa en la internet, comienza aquí</h2>
+    <h2 class="title">Servicios de Desarrollo Web para PyMEs en México</h2>
     <p>
-      Nuestro equipo de expertos está listo para llevar tu negocio al
-      siguiente nivel con soluciones digitales personalizadas.
+      Nuestro equipo de expertos en desarrollo web está especializado en crear soluciones digitales 
+      que impulsan el crecimiento de pequeñas y medianas empresas en Puebla y todo México.
     </p>
 
     <ServiceSelector />

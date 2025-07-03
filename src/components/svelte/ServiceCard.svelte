@@ -49,6 +49,7 @@
       decoding="async"
       width="600"
       height="400"
+      style="aspect-ratio: 3/2;"
     />
   </div>
 </div>
@@ -85,12 +86,23 @@
     .image {
       width: 600px;
       display: flex;
+      /* Reserve space for image to prevent layout shift */
+      min-height: 400px;
 
       img {
         width: 100%;
         height: auto;
         object-fit: cover;
         border-radius: 0.8rem;
+        /* Ensure aspect ratio is maintained */
+        aspect-ratio: 3/2;
+        /* Smooth transition when image loads */
+        transition: opacity 0.3s ease;
+      }
+      
+      /* Image loading state */
+      img[loading] {
+        background: rgba(255, 255, 255, 0.1);
       }
     }
 
@@ -116,11 +128,17 @@
           margin: auto;
         }
       }
+      
+      .image {
+        /* Maintain consistent dimensions in mobile layout */
+        min-height: 333px; /* 500px * 2/3 aspect ratio */
+      }
     }
 
     @media screen and (max-width: 1200px) {
       .image {
         width: 500px;
+        min-height: 333px; /* 500px * 2/3 aspect ratio */
       }
     }
 
@@ -136,6 +154,7 @@
 
       .image {
         width: 350px;
+        min-height: 233px; /* 350px * 2/3 aspect ratio */
       }
     }
   }

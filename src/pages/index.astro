@@ -6,6 +6,27 @@ import heroBackground from "../assets/background.webp";
 ---
 
 <Layout>
+	<!-- Page-specific meta tags -->
+	<meta slot="head" name="description" content="Creamos sitios web profesionales para negocios como el tuyo. Agencia SYNC especializada en desarrollo web para PyMEs en Puebla y México. ¡Contacta hoy!" />
+	<meta slot="head" property="og:title" content="Creamos sitios web profesionales para negocios como el tuyo - SYNC" />
+	<meta slot="head" property="og:description" content="Agencia SYNC: desarrollo web profesional para PyMEs en Puebla y México. Sitios modernos que generan clientes y ventas." />
+	
+	<!-- Breadcrumb Schema -->
+	<script slot="head" type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Inicio",
+				"item": "https://syncestudio.com"
+			}
+		]
+	}
+	</script>
+
 	<section class="hero container">
 		<Image 
 			src={heroBackground} 
@@ -15,12 +36,14 @@ import heroBackground from "../assets/background.webp";
 			fetchpriority="high"
 			format="webp"
 			quality={85}
+			width={1920}
+			height={1080}
 		/>
 		<div class="hero_content">
-			<h1>Hazte visible donde importa.</h1>
+			<h1>Creamos sitios web profesionales para negocios como el tuyo</h1>
 			<p>
-				Hacemos realidad tu presencia digital con sitios web, apps y
-				automatización.
+				Ayudamos a empresas de Puebla y México a crecer en línea con sitios web modernos, 
+				aplicaciones móviles y soluciones digitales diseñadas para generar más clientes y ventas.
 			</p>
 			<div class="hero_buttons">
 				<a href="/contact" class="button primary">¿Empezamos hoy?</a>
@@ -29,7 +52,17 @@ import heroBackground from "../assets/background.webp";
 		</div>
 	</section>
 
-	<Services client:visible />
+	<!-- Add loading skeleton placeholder for Services component -->
+	<div class="services-skeleton" id="services-skeleton">
+		<div class="skeleton-header">
+			<div class="skeleton-title"></div>
+			<div class="skeleton-text"></div>
+			<div class="skeleton-button"></div>
+		</div>
+		<div class="skeleton-card"></div>
+	</div>
+	
+	<Services client:load />
 </Layout>
 
 <style lang="scss">
@@ -58,6 +91,7 @@ import heroBackground from "../assets/background.webp";
 			height: 100%;
 			object-fit: cover;
 			z-index: 1;
+			aspect-ratio: 16/9; /* Preserve aspect ratio to prevent layout shift */
 		}
 
 		.hero_content {
@@ -68,14 +102,17 @@ import heroBackground from "../assets/background.webp";
 			gap: 1rem;
 
 			h1 {
-				font-size: 4rem;
-				text-transform: uppercase;
+				font-size: 3.2rem;
+				line-height: 1.1;
+				font-weight: 700;
 			}
 
 			p {
-				width: 80%;
-				opacity: 60%;
-				font-size: 1.5rem;
+				width: 85%;
+				opacity: 70%;
+				font-size: 1rem;
+				line-height: 1.4;
+				margin-top: 1.5rem;
 			}
 
 			.hero_buttons {
@@ -86,14 +123,85 @@ import heroBackground from "../assets/background.webp";
 
 			@media screen and (max-width: 1200px) {
 				h1 {
-					font-size: 3rem;
+					font-size: 2.5rem;
 				}
 
 				p {
 					width: 100%;
-					font-size: 1.2rem;
+					font-size: 1.1rem;
 				}
 			}
+
+			@media screen and (max-width: 768px) {
+				h1 {
+					font-size: 2.2rem;
+					line-height: 1.1;
+				}
+
+				p {
+					font-size: 0.9rem;
+					line-height: 1.3;
+					margin-top: 1rem;
+					opacity: 65%;
+				}
+			}
+		}
+	}
+
+	/* Loading skeleton styles for Services component */
+	.services-skeleton {
+		padding-top: 4rem;
+		text-align: center;
+		animation: pulse 1.5s ease-in-out infinite alternate;
+		
+		.skeleton-header {
+			margin-bottom: 4rem;
+			
+			.skeleton-title {
+				height: 3rem;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 0.5rem;
+				max-width: 600px;
+				margin: 0 auto 1rem;
+			}
+			
+			.skeleton-text {
+				height: 1.5rem;
+				background: rgba(255, 255, 255, 0.08);
+				border-radius: 0.5rem;
+				max-width: 800px;
+				margin: 0 auto 2rem;
+			}
+			
+			.skeleton-button {
+				height: 2.5rem;
+				width: 150px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 25px;
+				margin: 0 auto;
+			}
+		}
+		
+		.skeleton-card {
+			height: 500px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 0.8rem;
+			margin-top: 4rem;
+		}
+		
+		@media screen and (max-width: 768px) {
+			.skeleton-card {
+				height: 650px;
+			}
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			opacity: 0.6;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 
@@ -160,7 +268,6 @@ import heroBackground from "../assets/background.webp";
 
 		&_container {
 			width: 100%;
-			margin-top: 4rem;
 		}
 
 		.service_card {
@@ -176,3 +283,29 @@ import heroBackground from "../assets/background.webp";
 		}
 	}
 </style>
+
+<script>
+	// More efficient skeleton hiding - using immediate execution
+	(function() {
+		function hideSkeletonWhenReady() {
+			const skeleton = document.getElementById('services-skeleton');
+			if (skeleton) {
+				// Use requestAnimationFrame for smoother transition
+				requestAnimationFrame(() => {
+					skeleton.style.opacity = '0';
+					skeleton.style.transition = 'opacity 0.3s ease';
+					setTimeout(() => {
+						skeleton.style.display = 'none';
+					}, 300);
+				});
+			}
+		}
+		
+		// Try to hide skeleton as soon as possible
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', hideSkeletonWhenReady);
+		} else {
+			hideSkeletonWhenReady();
+		}
+	})();
+</script>

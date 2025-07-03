@@ -4,7 +4,15 @@ import { Image } from 'astro:assets';
 
 <header class="container">
     <a class="logo" href="/#">
-        <Image src="/logo_text.png" alt="SYNC Logo" width={50} height={14} />
+        <Image 
+            src="/logo_text.png" 
+            alt="SYNC Logo" 
+            width={50} 
+            height={14}
+            loading="eager"
+            fetchpriority="high"
+            style="aspect-ratio: 50/14;"
+        />
     </a>
     <nav class="nav_links">
         <a href="/#">Inicio</a>
@@ -23,6 +31,15 @@ import { Image } from 'astro:assets';
         justify-content: space-between;
         align-items: center;
         text-align: center;
+        /* Reserve space for header to prevent layout shift */
+        min-height: 5rem;
+
+        .logo {
+            /* Reserve space for logo */
+            display: block;
+            width: 50px;
+            height: 14px;
+        }
 
         a {
             color: white;
