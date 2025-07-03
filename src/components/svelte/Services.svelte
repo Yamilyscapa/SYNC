@@ -32,6 +32,7 @@
 
       h2 {
         margin-bottom: 1rem;
+        font-size: 2.5rem;
       }
 
       p {

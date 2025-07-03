@@ -8,6 +8,7 @@
         "Creamos sitios web personalizados y optimizados para tu negocio. Desde páginas informativas hasta tiendas en línea, tenemos la solución perfecta para ti.",
       link: { href: "/web", text: "sitio web" },
       image: "/web_development_service.webp",
+      alt: "Ilustración de desarrollo web mostrando código y elementos de diseño"
     },
     app: {
       title: "Desarrollo de Apps",
@@ -15,6 +16,7 @@
         "Desarrollamos aplicaciones móviles a medida para iOS y Android.",
       link: { href: "/app", text: "aplicación móvil" },
       image: "/images/app-development.jpg",
+      alt: "Mockup de aplicación móvil en smartphone"
     },
     custom: {
       title: "Soluciones a Medida",
@@ -22,6 +24,7 @@
         "Ofrecemos soluciones personalizadas para tus necesidades específicas.",
       link: { href: "/custom", text: "solución personalizada" },
       image: "/images/custom-solutions.jpg",
+      alt: "Diagrama de soluciones personalizadas de software"
     },
   };
 
@@ -39,7 +42,14 @@
     >
   </div>
   <div class="image">
-    <img src={currentService.image} alt={currentService.title} />
+    <img 
+      src={currentService.image} 
+      alt={currentService.alt} 
+      loading="lazy"
+      decoding="async"
+      width="600"
+      height="400"
+    />
   </div>
 </div>
 

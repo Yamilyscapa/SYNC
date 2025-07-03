@@ -1,5 +1,11 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <header class="container">
-    <a class="logo" href="/#">SYNC</a>
+    <a class="logo" href="/#">
+        <Image src="/logo_text.png" alt="SYNC Logo" width={50} height={14} />
+    </a>
     <nav class="nav_links">
         <a href="/#">Inicio</a>
         <a href="/projects">Proyectos</a>
@@ -34,13 +40,6 @@
             a:hover {
                 opacity: 1;
             }
-        }
-
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
         }
     }
 </style>
