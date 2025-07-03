@@ -1,0 +1,130 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer_content">
+            <div class="footer_section">
+                <a class="footer_logo" href="/#">
+                    <Image src="/logo_text.png" alt="SYNC Logo" width={60} height={17} />
+                </a>
+                <p class="footer_description">
+                    Expertos en desarrollo web. Creamos sitios web optimizados, modernos y funcionales.
+                </p>
+            </div>
+            
+            <div class="footer_section">
+                <h3>Navegación</h3>
+                <nav class="footer_nav">
+                    <a href="/#">Inicio</a>
+                    <a href="/projects">Proyectos</a>
+                    <a href="/contact">Contacto</a>
+                </nav>
+            </div>
+            
+            <!-- <div class="footer_section">
+                <h3>Servicios</h3>
+                <nav class="footer_nav">
+                    <a href="/#">Desarrollo Web</a>
+                    <a href="/#">Aplicaciones Móviles</a>
+                    <a href="/#">Automatización</a>
+                    <a href="/#">Consultoría</a>
+                </nav>
+            </div> -->
+            
+            <div class="footer_section">
+                <h3>Contacto</h3>
+                <div class="footer_contact">
+                    <a href="/contact" class="button secondary">¿Empezamos hoy?</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer_bottom">
+            <p>&copy; 2025 SYNC. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+    .footer {
+        background: rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 4rem;
+        
+        .footer_content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            
+            @media screen and (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+        
+        .footer_section {
+            h3 {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                opacity: 0.9;
+            }
+            
+            .footer_logo {
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+            
+            .footer_description {
+                font-size: 0.9rem;
+                opacity: 0.7;
+                line-height: 1.5;
+                max-width: 300px;
+                
+                @media screen and (max-width: 768px) {
+                    max-width: none;
+                }
+            }
+        }
+        
+        .footer_nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            
+            a {
+                color: white;
+                text-decoration: none;
+                font-size: 0.9rem;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+                
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        
+        .footer_contact {
+            .button {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+        
+        .footer_bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            text-align: center;
+            
+            p {
+                font-size: 0.8rem;
+                opacity: 0.6;
+            }
+        }
+    }
+</style> 
