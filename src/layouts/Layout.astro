@@ -7,8 +7,18 @@ import Header from "../components/Header.astro";
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Preload critical resources -->
+		<link rel="preload" href="/web_development_service.webp" as="image" type="image/webp" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
+		<!-- Favicon optimized for different sizes -->
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+		
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<title>SYNC - Expertos en Desarrollo Web</title>
 		<meta name="author" content="SYNC" />
@@ -17,6 +27,19 @@ import Header from "../components/Header.astro";
 			content="Sync: expertos desarrolladores web. Creamos sitios web optimizados, modernos y funcionales. ¡Contáctanos y destaca online!"
 		/>
 		<meta name="robots" content="index, follow" />
+		
+		<!-- Open Graph meta tags for social sharing -->
+		<meta property="og:title" content="SYNC - Expertos en Desarrollo Web" />
+		<meta property="og:description" content="Creamos sitios web optimizados, modernos y funcionales. ¡Contáctanos y destaca online!" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/web_development_service.webp" />
+		
+		<!-- Twitter Card meta tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="SYNC - Expertos en Desarrollo Web" />
+		<meta name="twitter:description" content="Creamos sitios web optimizados, modernos y funcionales." />
+		<meta name="twitter:image" content="/web_development_service.webp" />
+		
 		<slot name="head" />
 	</head>
 	<body>

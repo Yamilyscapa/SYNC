@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 <Layout>
     <section class="projects section">
@@ -14,7 +15,15 @@ import Layout from "../layouts/Layout.astro";
         <div class="projects_body">
             <div class="projects_container">
                 <article class="project project_web">
-                    <img class="project_img" src="/hauzzo_project.webp" alt="" />
+                    <Image 
+                        class="project_img" 
+                        src="/hauzzo_project.webp" 
+                        alt="Captura de pantalla del proyecto Hauzzo - Plataforma inmobiliaria para conectar compradores y vendedores"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        format="webp"
+                    />
                     <div class="project_content">
                         <h2>Hauzzo</h2>
                         <p>
@@ -27,7 +36,15 @@ import Layout from "../layouts/Layout.astro";
                 </article>
 
                 <article class="project project_mobile">
-                    <img class="project_img" src="/royal_project.webp" alt="" />
+                    <Image 
+                        class="project_img" 
+                        src="/royal_project.webp" 
+                        alt="Captura de pantalla de The Royal App - Aplicación móvil para reservar citas en barbería"
+                        width={400}
+                        height={800}
+                        loading="lazy"
+                        format="webp"
+                    />
                     <div class="project_content">
                         <h2>The Royal App</h2>
                         <p>
@@ -91,21 +108,23 @@ import Layout from "../layouts/Layout.astro";
             text-align: center;
             margin: 1rem 0;
 
-            .project_img {
+            :global(.project_img) {
                 width: auto;
                 max-height: 400px;
+                height: auto;
                 border-radius: 8px;
                 margin-bottom: 1rem;
+                object-fit: cover;
             }
 
             @media screen and (max-width: 768px) {
                 &.project_web {
-                    img {
+                    :global(.project_img) {
                         max-height: 220px;
                     }
                 }
                 &.project_mobile {
-                    img {
+                    :global(.project_img) {
                         max-height: 400px;
                     }
                 }
